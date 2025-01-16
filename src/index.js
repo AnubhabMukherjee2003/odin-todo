@@ -83,6 +83,7 @@ class TodoApp {
 
         this.subjects = [project, home];
         this.displaySubjectList();
+        this.displaySubject(this.subjects[0]);
     }
 
     showSubjectDialog() {
