@@ -1,37 +1,111 @@
+:root {
+    --primary-color: #4a90e2;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --danger-color: #e74c3c;
+    --radius: 8px;
+    --spacing: 1rem;
+}
+
+:root.dark {
+    --bg-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --text-color: #ffffff;
+    --border-color: #404040;
+}
+
+:root.light {
+    --bg-color: #ffffff;
+    --surface-color: #f5f5f5;
+    --text-color: #333333;
+    --border-color: #e0e0e0;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root.dark {
-    --border-btn: 1px solid rgb(220, 220, 220);
-    --color-btn-bg: rgb(36, 36, 36);
-
-    --color-base-bg: rgb(18, 18, 18);
-    --color-base-text: rgb(240, 240, 240);
-    
-    --bg-img: url(./dark-theme.jpg);
-}
-
-:root.light {
-    --border-btn: 1px solid rgb(36, 36, 36);
-    --color-base-text: rgb(18, 18, 18);
-    --color-btn-bg: rgb(220, 220, 220);
-    --bg-img: url(./light-theme.jpg);
-}
-
 body {
-    background-image: var(--bg-img);
-    max-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-body,
-.theme-toggle {
-    color: var(--color-base-text);
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
 }
 
+.sidebar {
+    background-color: var(--surface-color);
+    padding: var(--spacing);
+    border-right: 1px solid var(--border-color);
+}
+
+.main {
+    padding: var(--spacing) calc(var(--spacing) * 2);
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.todo {
+    background-color: var(--surface-color);
+    padding: var(--spacing);
+    margin-bottom: var(--spacing);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+dialog {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: calc(var(--spacing) * 2);
+}
+
+.form-group {
+    margin-bottom: var(--spacing);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: calc(var(--radius) / 2);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: var(--spacing);
+    justify-content: flex-end;
+    margin-top: calc(var(--spacing) * 2);
+}
 .theme-toggle {
     background-color: var(--color-btn-bg);
     border: var(--border-btn);
